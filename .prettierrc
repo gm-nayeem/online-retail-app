@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.{ts,tsx,js,jsx,json,html,css,scss,yml}",
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
+}

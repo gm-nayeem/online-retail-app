@@ -1,0 +1,17 @@
+Question: Describe how you would architect this system using NodeJS and NestJS:
+I would use the NestJS framework for building microservices in NodeJS for this online retail system. NestJS is well-suited for developing scalable and maintainable server-side applications, offering a modular and structured approach to building APIs. Each microservice would be a separate NestJS application, focusing on a specific business domain (Product Catalog, User Accounts, Orders, Payment). 
+
+Discuss your choice of database(s) for each microservice:
+Product Catalog Service: MongoDB database, as it provides flexibility in handling diverse product data.
+User Account Service: PostgreSQL database, a robust relational database suitable for managing user profiles, authentication details, and relationships.
+Order Service: A relational database such as MySQL or PostgreSQL, ensuring consistency for order-related transactions.
+Payment Service: This may not require a database if relying on external payment gateways.
+
+Explain how these microservices will communicate with each other, ensuring data consistency, security, and system reliability:
+Communication: RESTful APIs synchronous communication for operations that can tolerate some latency. And Asynchronous communication for handling events and background tasks, promoting decoupling and resilience.
+Data Consistency: Implementing an event-driven architecture that generates events for state changes, helping maintain eventual consistency.
+Security: JWT (JSON Web Tokens) ensuring secure authentication and authorization between microservices. And HTTPS encrypting communication between services to enhance security.
+
+Include your approach to handling transactions, especially in a distributed system environment:
+Distributed Transactions: Saga Pattern to breaking down transactions into a series of smaller, manageable steps with local transactions and compensating transactions to handle failures.
+Compensating Transactions: Implementing compensating transactions to rollback changes in case of failures or errors, ensuring data integrity.
